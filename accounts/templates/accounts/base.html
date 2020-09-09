@@ -1,0 +1,97 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- Required meta tags -->
+    {%load static%}
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>MUKUL ITI</title>
+    <!-- CSS only -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+<!-- JS, Popper.js, and jQuery -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+
+<!-------fonts ------->
+<link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=EB+Garamond&family=Fondamento&display=swap" rel="stylesheet">
+
+ <link rel="stylesheet" type="text/css" href="{% static "/accounts/base.css" %}">
+
+</head>
+<body style="position: relative; ">
+    
+    <!-------------------------- navbar ------------------------------------>
+<nav class="navbar navbar-expand-lg navbar-dark" style="background-color:#17141D;">
+  <a class="navbar-brand" href="#"><span>WELCOME</span></a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav">
+      <a class="nav-item nav-link active" href="{% url 'about' %}">About</a>
+      <a class="nav-item nav-link active" href="{% url 'staff' %}">Staff</a>
+      {% if request.user.is_authenticated %}
+        <a class="nav-item nav-link" href="{% url "dashboard" %}">Dashboard</a>
+        <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Settings</a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item"  href="{% url 'profile_update' %}">Update Profile</a>
+          <a class="dropdown-item" href="#">Another action</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="#">Something else here</a>
+        </div></li>
+      <a class="nav-item nav-link " href="{% url 'logout' %}">Log out</a>
+      {% else %}
+      <a class="nav-item nav-link ml-auto" href="{% url "login" %}">Log in</a>
+      <a class="nav-item nav-link ml-auto" href="{% url "register" %}">Sign Up</a>
+      {% endif %}
+  </div>
+</nav>
+  
+            {% block body%}
+
+            {% endblock %}
+<!--
+<div class="contact">
+  <div class="container">
+    <p  id="clg">
+     MUKUL PRIVATE ITI
+    </p>
+      <p id="credit"><b><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-code-slash" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+      <path fill-rule="evenodd" d="M4.854 4.146a.5.5 0 0 1 0 .708L1.707 8l3.147 3.146a.5.5 0 0 1-.708.708l-3.5-3.5a.5.5 0 0 1 0-.708l3.5-3.5a.5.5 0 0 1 .708 0zm6.292 0a.5.5 0 0 0 0 .708L14.293 8l-3.147 3.146a.5.5 0 0 0 .708.708l3.5-3.5a.5.5 0 0 0 0-.708l-3.5-3.5a.5.5 0 0 0-.708 0zm-.999-3.124a.5.5 0 0 1 .33.625l-4 13a.5.5 0 0 1-.955-.294l4-13a.5.5 0 0 1 .625-.33z"/>
+      </svg></b> with <span><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-heart-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+      <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"/>
+      </svg>
+    </span> by Anshika</p>
+    
+
+  </div>
+</div>
+-->
+
+<!--footer -->
+
+<!--
+    <div class="footer" style="
+    position:absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: grey;
+  color: white;
+  text-align: center;
+  
+    ">
+        &copy; Designed by Anshika Shrivastav
+    </div>
+
+
+<!--footer end -->
+</body>
+</html>
